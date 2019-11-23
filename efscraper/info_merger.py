@@ -1,12 +1,12 @@
 import json
 
-with open("companies_info.json", "r") as f:
+with open("data/companies_info.json", "r") as f:
     companies = json.load(f)
 
-with open("companies_location.json", "r") as f:
+with open("data/companies_location.json", "r") as f:
     locations = json.load(f)
 
-with open("companies_cohort.json", "r") as f:
+with open("data/companies_cohort.json", "r") as f:
     cohorts = json.load(f)
 
 for company in companies:
@@ -21,5 +21,5 @@ for company in companies:
         if cname == cohort["company_name"]:
             company["company_cohort"] = cohort["company_cohort"]
 
-with open("companies.json", "w") as f:
+with open("data/companies.json", "w") as f:
     json.dump(companies, f)
