@@ -16,8 +16,6 @@ class EFCompaniesSpider(scrapy.Spider):
             company_cat = company.css("div.company__cat span::text").get()
 
             detailbio = company.css("div.detailbio")
-            founders_names = detailbio.css("span.detailbio__founders::text").getall()
-            total_founders = len(founders_names)
             company_url = detailbio.css("div.detailbio__website a::attr(href)").get()
 
             excerpt = []
@@ -37,8 +35,6 @@ class EFCompaniesSpider(scrapy.Spider):
                 "company_url": company_url,
                 "company_short_desc": company_short_desc,
                 "company_long_desc": company_long_desc,
-                "total_founders": total_founders,
-                "founders_names": founders_names,
                 "founders_info": founders_info
             }
 
