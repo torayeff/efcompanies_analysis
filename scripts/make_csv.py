@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 
-with open("data/companies.json", "r") as f:
+with open("../data/companies.json", "r") as f:
     companies = json.load(f)
 
 for company in companies:
@@ -18,4 +18,4 @@ for company in companies:
     company["founders_info"] = cleaned
 
 df = pd.DataFrame(data=companies, columns=list(companies[0].keys()))
-df.to_csv("data/companies.csv", index=False)
+df.to_csv("../data/companies.csv", index=False)
